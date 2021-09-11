@@ -12,12 +12,12 @@ namespace API.Controllers
 {
     public class AccountController : BaseApiController
     {
-        private readonly DataContext _context;           //dependency injection
-        private readonly ITokenService _tokenService;   //object of class
+        private readonly DataContext _context;         //dependency injection
+        private readonly ITokenService _tokenService;  //object of class
         public AccountController(DataContext context, ITokenService tokenService) // constructor
         {
             _tokenService = tokenService;
-            _context = context;             //assign
+            _context = context;                        //assign
 
         }
 
