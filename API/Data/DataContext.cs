@@ -1,5 +1,6 @@
 ﻿using API.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace API.Data
@@ -11,5 +12,10 @@ namespace API.Data
         }
 
         public DbSet<AppUser> Users { get; set; }
+
+        internal object Include(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
