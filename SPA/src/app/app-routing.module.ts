@@ -1,3 +1,5 @@
+import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { ServerErrorComponent } from './Errors/server-error/server-error.component';
 import { NotFoundComponent } from './Errors/not-found/not-found.component';
 import { TestErrorsComponent } from './Errors/test-errors/test-errors.component';
@@ -18,8 +20,9 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate:[AuthGuard],
     children: [
-      {path: 'members',component:MemberListComponent, canActivate:[AuthGuard]},
-      {path: 'members/:id',component:MemberDetailComponent},
+      {path: 'members',component:MemberListComponent},
+      {path: 'members/:username',component:MemberDetailComponent},
+      {path: 'member/:edit',component:MemberEditComponent, canDeactivate:[PreventUnsavedChangesGuard]},
       {path: 'lists',component:ListsComponent},
       {path: 'messages',component:MessagesComponent},
     ]
