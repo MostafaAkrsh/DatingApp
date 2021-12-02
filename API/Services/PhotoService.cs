@@ -1,13 +1,10 @@
-﻿using API.Helpers;
+﻿using System.Threading.Tasks;
+using API.Helpers;
 using API.Interfaces;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace API.Services
 {
@@ -17,11 +14,11 @@ namespace API.Services
         public PhotoService(IOptions<CloudinarySettings> config)
         {
             var acc = new Account
-            {
-                Cloud = config.Value.CloudName,
-                ApiKey = config.Value.ApiKey,
-                ApiSecret =  config.Value.ApiSecret
-            };
+            (
+                config.Value.CloudName,
+                config.Value.ApiKey,
+                config.Value.ApiSecret
+            );
 
             _cloudinary = new Cloudinary(acc);
         }
@@ -30,23 +27,18 @@ namespace API.Services
         {
             var uploadResult = new ImageUploadResult();
 
-            if(file.Length > 0)
+            if (file.Length > 0)
             {
-                await using var stream = file.OpenReadStream();
-
+                using var stream = file.OpenReadStream();
                 var uploadParams = new ImageUploadParams
                 {
                     File = new FileDescription(file.FileName, stream),
                     Transformation = new Transformation().Height(500).Width(500).Crop("fill").Gravity("face")
-
                 };
-
                 uploadResult = await _cloudinary.UploadAsync(uploadParams);
-
             }
-                return uploadResult;
 
-
+            return uploadResult;
         }
 
         public async Task<DeletionResult> DeletePhotoAsync(string publicId)

@@ -20,7 +20,7 @@ namespace API.Entities
         public string LookingFor { get; set; }
         public string Intersts { get; set; }
         public string City { get; set; }
-        public string Counter { get; set; }
+        public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; }
         
         //public int GetAge()

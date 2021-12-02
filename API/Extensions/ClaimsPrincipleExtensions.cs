@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace API.Extensions
 {
-    //public class ClaimsPrincipleExtensions
-    //{
-    //    public static string GetUsername(this ClaimsPrincipal user)
-    //    {
-
-    //    }
-    //}
+   public static class ClaimsPrincipleExtensions
+    {
+       public static string GetUsername(this ClaimsPrincipal user)
+        {
+            return user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        }
+    }
 }
