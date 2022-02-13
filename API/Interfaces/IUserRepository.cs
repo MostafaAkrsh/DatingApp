@@ -1,5 +1,6 @@
 ﻿using API.DTOs;
 using API.Entities;
+using API.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,7 @@ namespace API.Interfaces
         Task<IEnumerable<AppUser>> GetUsersAsync();
         Task<AppUser> GetUserByIdAsync(int id);
         Task<AppUser> GetUserByUsernameAsync(string username);
-
-        Task<IEnumerable<MemberDto>> GetMembersAsync();
+        Task<PageList<MemberDto>> GetMembersAsync(UserParams userparams);
         Task<MemberDto> GetMemberAsync(string username);
         //Async keyword used to know when we use the function we must 
         //write await keywork
