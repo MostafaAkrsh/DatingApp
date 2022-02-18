@@ -1,16 +1,53 @@
+
 .card:hover img{
   transform: scale(1.2,1.2);
   transition-duration: 500ms;
+  border: solid black;
+  position:relative;
+  top: -20px;
   transition-timing-function: ease-out;
-  opacity: 0.9;
 }
 
 .card img {
+  position:relative;
   transform: scale(1.0,1.0);
   transition-duration: 500ms;
   transition-timing-function: ease-out;
+  top: 0px;
+
 }
 
 .card-img-wrapper {
-  overflow: hidden;
+  overflow:hidden
+}
+
+.card:hover .member-icons .btn-primary{
+  transition:all 250ms ease-out;
+
+  background: black;
+  border: black;
+  transform: scale(1.1,1.1);
+}
+
+.card:hover .member-icons .btn-primary:hover{
+  transition:all 250ms ease-out;
+
+  background: #0062cc;
+  border: black;
+  transform: scale(1.1,1.1);
+}
+.card .member-icons .btn-primary{
+  transition:all 500ms ease-out;
+}
+
+.card:hover .card-body {
+  transition:all 250ms ease-out;
+
+  transform: scale(1.1,1.1);
+  font-weight: bold;
+}
+
+.card .card-body {
+  transition:all 250ms linear;
+
 }

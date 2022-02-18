@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
+import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
+import { MessageService } from 'src/app/_services/message.service';
+import { Message } from 'src/app/_models/message';
 
 @Component({
   selector: 'app-member-detail',
@@ -10,11 +13,20 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov
   styleUrls: ['./member-detail.component.css']
 })
 export class MemberDetailComponent implements OnInit {
+  @ViewChild('memberTabs', {static: false}) memberTabs: TabsetComponent;
   member: Member;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  activeTab: TabDirective;
+  messages: Message[] = []
 
-  constructor(private memberService: MembersService, private route: ActivatedRoute) { }
+  constructor(private memberService: MembersService,private messageService: MessageService ,private route: ActivatedRoute) { }
+
+  ngAfterViewInit() : void {
+    this.route.queryParams.subscribe(params => {
+      params.tab ? this.selectTab(params.tab) : this.selectTab(0);
+    })
+  }
 
   ngOnInit(): void {
     this.loadMember();
@@ -50,4 +62,22 @@ export class MemberDetailComponent implements OnInit {
     })
   }
 
+  loadMessages() {
+    this.messageService.getMessageThread(this.member.username).subscribe(messages => {
+      this.messages = messages;
+    })
+  }
+
+  selectTab(tabId:number){
+    this.memberTabs.tabs[tabId].active = true;
+  }
+
+  
+  onTabActivated(data: TabDirective)
+  {
+    this.activeTab = data;
+    if(this.activeTab.heading === 'Messages'){
+      this.loadMessages();
+    }
+  }
 }
