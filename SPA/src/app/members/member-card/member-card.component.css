@@ -1,19 +1,19 @@
 
 .card:hover img{
-  transform: scale(1.2,1.2);
+  transform: scale(1.7,1.7);
   transition-duration: 500ms;
-  border: solid black;
+  border: solid 10px rgb(0, 0, 0);
   position:relative;
-  top: -20px;
+  top: -3px;
   transition-timing-function: ease-out;
 }
 
 .card img {
   position:relative;
-  transform: scale(1.0,1.0);
+  transform: scale(1.5,1.5);
   transition-duration: 500ms;
   transition-timing-function: ease-out;
-  top: 0px;
+  top: 20px;
 
 }
 
@@ -22,11 +22,13 @@
 }
 
 .card:hover .member-icons .btn-primary{
-  transition:all 250ms ease-out;
-
+  transition:all 750ms ease-out;
+  position:relative;
+  top:2px;
   background: black;
   border: black;
   transform: scale(1.1,1.1);
+  opacity: 100%;
 }
 
 .card:hover .member-icons .btn-primary:hover{
@@ -34,10 +36,16 @@
 
   background: #0062cc;
   border: black;
-  transform: scale(1.1,1.1);
+  transform: scale(1.2,1.2);
+  top:-5px;
+
 }
+
 .card .member-icons .btn-primary{
   transition:all 500ms ease-out;
+  position:relative;
+  top:15px;
+  opacity: 50%;
 }
 
 .card:hover .card-body {

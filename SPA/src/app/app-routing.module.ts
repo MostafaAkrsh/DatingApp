@@ -11,6 +11,8 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { MemberListComponent } from './members/member-list/member-list.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { AdminGuard } from './_guards/admin.guard';
 
 const routes: Routes = [
   {path: '',component:HomeComponent},
@@ -24,6 +26,7 @@ const routes: Routes = [
       {path: 'member/:edit',component:MemberEditComponent},
       {path: 'lists',component:ListsComponent},
       {path: 'messages',component:MessagesComponent},
+      {path: 'admin',component: AdminPanelComponent, canActivate: [AdminGuard]}
     ]
   },
   {path: 'errors',component:TestErrorsComponent},
