@@ -1,23 +1,20 @@
-﻿using API.DTOs;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using API.DTOs;
 using API.Entities;
 using API.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace API.Interfaces
 {
     public interface IUserRepository
     {
         void Update(AppUser user);
-        Task<bool> SaveAllAsync();
         Task<IEnumerable<AppUser>> GetUsersAsync();
         Task<AppUser> GetUserByIdAsync(int id);
         Task<AppUser> GetUserByUsernameAsync(string username);
-        Task<PageList<MemberDto>> GetMembersAsync(UserParams userparams);
-        Task<MemberDto> GetMemberAsync(string username);
-        //Async keyword used to know when we use the function we must 
-        //write await keywork
+        Task<PageList<MemberDto>> GetMembersAsync(UserParams userParams);
+        Task<MemberDto> GetMemberAsync(string username, bool isCurrentUser);
+        Task<string> GetUserGender(string username);
+        Task<AppUser> GetUserByPhotoId(int photoId);
     }
 }

@@ -1,10 +1,9 @@
 
-.card:hover img{
-  transform: scale(1.7,1.7);
+.card:hover img,
+.card:active img{
   transition-duration: 500ms;
-  border: solid 10px rgb(0, 0, 0);
   position:relative;
-  top: -3px;
+  top: -15px;
   transition-timing-function: ease-out;
 }
 
@@ -28,11 +27,13 @@
   background: black;
   border: black;
   transform: scale(1.1,1.1);
-  opacity: 1%;
+  opacity: 0%;
 }
 
-.card:hover .member-icons .btn-primary{
-  transition:all 750ms ease-out;
+.card:hover .member-icons .btn-primary,
+.card:active .member-icons .btn-primary
+{
+  transition:all 500ms ease-out;
   position:relative;
   top:2px;
   background: black;
@@ -41,23 +42,24 @@
   opacity: 100%;
 }
 
-.card:hover .member-icons .btn-primary:hover{
+.card:hover .member-icons .btn-primary:hover,
+.card:active .member-icons .btn-primary:active{
   transition:all 250ms ease-out;
   background: #0062cc;
   border: black;
-  transform: scale(1.2,1.2);
-  top:-5px;
+  transform: scale(1.1,1.1);
 
 }
 
 .card .member-icons .btn-primary{
   transition:all 500ms ease-out;
   position:relative;
-  top:15px;
-  opacity: 0%;
+  top:35px;
+  opacity: 100%;
 }
 
-.card:hover .card-body {
+.card:hover .card-body,
+.card:active .card-body {
   transition:all 250ms ease-out;
 
   transform: scale(1.1,1.1);
