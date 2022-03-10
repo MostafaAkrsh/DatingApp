@@ -7,3 +7,10 @@ img {
   border: 2px solid #fff;
   display: inline;
 }
+.navbar-brand img {
+  border: none;
+}
+
+.active {
+  color: #008AFF !important;
+}
