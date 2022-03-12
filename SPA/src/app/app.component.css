@@ -21,7 +21,6 @@ li:hover
   background-color: rgb(255, 0, 0);
 }
 .mt-auto {
-  position: absolute;
   bottom: -400px;
   width: 100%;
   height: 40px;

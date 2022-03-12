@@ -13,6 +13,8 @@
       </div>
 
       <hr>
+      <br>
+
     <p class="lead">Connect to the best people.</p>
     <div class= "text-center">
       <button *ngIf="(accountService.currentUser$ | async) === null" (click) ="registerToggle()" class="btn btn-outline-info btn-lg mr-1">Register Now</button>
@@ -31,5 +33,7 @@
   <div *ngIf="registerMode" class="container">
       <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
   </div>
+  <br>
+  <br>
 
 </div>
