@@ -14,3 +14,15 @@ img {
 .active {
   color: #008AFF !important;
 }
+
+.btn-info
+{
+  background-color: #008AFF;
+  border-color: #008AFF;
+}
+
+.btn-info:hover
+{
+  background-color: #0072d6;
+
+}
