@@ -7,6 +7,7 @@ import { AccountService } from 'src/app/_services/account.service';
 import { UserParams } from 'src/app/_models/userParams';
 import { take } from 'rxjs/operators';
 import { User } from 'src/app/_models/user';
+import * as internal from 'stream';
 
 @Component({
   selector: 'app-member-list',
@@ -20,7 +21,7 @@ export class MemberListComponent implements OnInit {
   userParams:UserParams;
   user:User;
   genderList = [{value: 'male', display:'Males'},{value:'female',display:'Females'},{value:'all',display:'All'}]
-
+  age: number;
   constructor(private membersService: MembersService, private accountService: AccountService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => {
       this.user = user;

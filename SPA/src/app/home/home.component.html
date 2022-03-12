@@ -4,6 +4,13 @@
     <br>
       <img class="logo" src="assets/logoblack.png" alt="logo">
       <img class="light" src="assets/light.png" >
+      
+      <div class="mobile">
+        <br>
+        <br>
+        <br>
+      </div>
+
       <hr>
     <p class="lead">Connect to the best people.</p>
     <div class= "text-center">
@@ -11,6 +18,13 @@
       <button *ngIf="(accountService.currentUser$ | async) !== null" routerLink='/members' class="btn btn-outline-info btn-lg mr-1">Go to Member list</button>
 
     </div>
+  </div>
+
+  <div class="mobile">
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
 
   <div *ngIf="registerMode" class="container">
