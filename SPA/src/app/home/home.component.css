@@ -45,6 +45,11 @@ hr{
     color: #008AFF;
   }
 
+  .mobile
+  {
+      display: none;
+  }
+
   @media only screen and (max-width: 600px) {
     .logo {
         margin: 50px;
@@ -73,6 +78,10 @@ hr{
         top: 50px;
     
         animation: 4s linear 0s infinite move_eye;
+    }
+    .mobile
+    {
+        display: block;
     }
     
   }
