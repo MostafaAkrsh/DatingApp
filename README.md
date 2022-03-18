@@ -23,7 +23,7 @@ You can browse the website with all functionalities in this link https://mostafo
 
 ## Technologies
 ### Front-end
-#### Angular 6+ & Typescript
+#### Angular 12 & Typescript
 #### Reactive Forms & RxJS
 #### Ngx-Bootstrap & Font Awesome
 
